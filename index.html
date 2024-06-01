@@ -137,6 +137,10 @@
           transform: rotate(360deg);
         }
       }
+      #countdown{
+        font-size: larger;
+        
+      }
     </style>
   </head>
   <body>
@@ -190,7 +194,7 @@
       function calculateTimeToMidnight() {
         const now = new Date();
         const midnight = new Date(now);
-        midnight.setHours(24, 0, 0, 0); // set to next midnight
+        midnight.setHours(22, 13, 0, 0); // set to next midnight
 
         return midnight.getTime() - now.getTime(); // difference in milliseconds
       }
