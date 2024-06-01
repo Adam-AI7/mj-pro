@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Examples</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      @media (min-width: 400px) {
+        .element {
+          background: #cccccc;
+        }
+      }
+
+      @media (min-width: 500px) {
+        .element {
+          background: #888888;
+        }
+      }
+
+      @media (min-width: 600px) {
+        .element {
+          background: #222222;
+        }
+      }
+      body,
+      html {
+        height: 100%;
+      }
+
+      .bg {
+        /* The image used */
+        background-image: url("assets/1.jpeg");
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .cardBox {
+  /* width: 300px;
+  height: 400px; */
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 10px 0px,
+    rgba(0, 0, 0, 0.5) 0px 2px 25px 0px;
+}
+.card {
+  position: absolute;
+  width: 95%;
+  height: 95%;
+  background: #000814;
+  border-radius: 20px;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.5) 0px 18px 36px -18px inset;
+}
+.card h2, span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 800;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+span {
+  top: 75%;
+}
+
+.card .content h3 {
+  font-size: 3rem;
+  padding-bottom: 10px;
+}
+.card .content p {
+  font-size: 1.6rem;
+  line-height: 25px;
+}
+.card .content {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.card:hover .content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card:hover h2, 
+.card:hover span {
+  opacity: 0;
+}
+
+.cardBox::before {
+  content: "";
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: #40E0D0;
+background: -webkit-linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+background: linear-gradient(to right, #FF0080, #FF8C00, #40E0D0);
+  animation: glowing01 5s linear infinite;
+  transform-origin: center;
+  animation: glowing 5s linear infinite;
+}
+
+@keyframes glowing {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <div
+      class="container"
+      style="
+        background-color: beige;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      "
+    >
+      <img id="lovePics" style="height: 50%; width: 40%" src="assets/1.jpeg" alt="" />
+      <div id="wishingLoop" style="height: 60%; width: 30%" class="cardBox">
+        <div class="card">
+          <h2>Salamun Alaikum</h2>
+          <span>Hover Me</span>
+          <div class="content">
+            <h3 >For My MJ</h3>
+            <p id="result">
+               I Wish You Many more happy returns! 
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div
+      style="width: 100%; height: 100%; position: relative"
+    >
+      <iframe
+        src="https://giphy.com/embed/9rO5Aksmn0dHQKXJAu"
+        width="100%"
+        height="50%"
+        style="position: absolute"
+        frameborder="0"
+        class="giphy-embed"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <p>
+      <a href="https://giphy.com/gifs/kikitech-cat-kiki-9rO5Aksmn0dHQKXJAu"
+        >via GIPHY</a
+      >
+    </p>
+
+    <script>
+      var wishes=    [
+        "Wishing you success and happiness in your future",
+        "I wish you all the best for a prosperous future ahead",
+        "Sending you best wishes for an amazing journey ahead!Cheers to your success and a bright future!May all your dreams come true! All the best",
+        "Wishing you a future filled with joy and happiness",
+        "Best wishes as you embark on this new journey in life!Here’s to wishing you an amazing year ahead",
+        "Good luck and have faith in all that you do!Go out and make your dreams come true! All the best!Wishing you a future full of success and prosperity",
+        "Sending warm wishes for a rewarding future ahead",
+        "I hope for only good things to come your way",
+        " Best wishes!May you have the courage and determination to reach your goals",
+        " All the best!Wishing you an amazing journey in life, full of success and happiness!",
+        "Patience is a pillar of faith."
+      ];
+      let animeCard=document.getElementById('wishingLoop');
+      window.scrollTo({
+  top: document.body.scrollHeight,
+  behavior: 'smooth' // This makes the scroll smooth
+});
+      function prayForMyMj(){
+        var index = Math.floor(Math.random() * 11);
+      document.getElementById("result").innerHTML = wishes[index];
+       document.getElementById('lovePics').src=`assets/${index}.jpeg`
+      }
+      animeCard.addEventListener('click',prayForMyMj)
+    </script>
+  </body>
+</html>
